@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THREE JS - Lesson</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            border: none;
+            transition: 0.1s;
+        }
+
+    </style>
+</head>
+    <body style="background-color: black;">
+        <canvas class="canvas" style="width: 100px; height: 100px;"></canvas>
+        <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.139.0/build/three.module.js",
+                "OrbitControls": "https://unpkg.com/three@0.139.0/examples/jsm/controls/OrbitControls.js",
+                "GLTFLoader": "https://unpkg.com/three@0.139.0/examples/jsm/loaders/GLTFLoader.js",
+                "RectAreaLightHelper": "https://unpkg.com/three@0.139.0/examples/jsm/helpers/RectAreaLightHelper.js",
+                "RectAreaLightUniformsLib": "https://unpkg.com/three@0.139.0/examples/jsm/lights/RectAreaLightUniformsLib.js"
+            }
+        }
+        </script>
+        <!-- <script type="module">
+
+        import * as THREE from 'three';
+        import { OrbitControls } from 'OrbitControls';
+        import { GLTFLoader } from 'GLTFLoader';
+        import { RectAreaLightHelper } from 'RectAreaLightHelper'
+        import { RectAreaLightUniformsLib } from 'RectAreaLightUniformsLib';
+
+        </script> -->
+        <script src="index.js" type="module"></script>
+    </body>
+</html>
