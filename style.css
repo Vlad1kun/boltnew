@@ -50,4 +50,5 @@ body {
     background: red;
     width: 100px;
     height: 200px;
+    border: 10px solid black;
 }
