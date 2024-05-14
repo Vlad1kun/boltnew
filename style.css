@@ -1,0 +1,50 @@
+body {
+    position: absolute;
+    background: url("img/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+.item {
+    position: relative;
+    width: 100px;
+    margin: 0 auto;
+    z-index: 0;
+    height: 100vh;
+
+}
+
+.point {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.Point {
+
+}
+
+.coin {
+
+}
+
+.energy {
+
+}
+
+.Energy {
+
+}
+
+.slesh {
+
+}
+
+.canvas {
+    z-index: 4;
+    top: 0;
+    left: 0;
+}

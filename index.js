@@ -10,12 +10,13 @@ var scene = new THREE.Scene();
 scene.scale.set(8,8,8)
 
 // Создаем камеру
-var camera = new THREE.PerspectiveCamera(75, (window.innerWidth - 50) / (window.innerHeight - 50), 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(75, (window.innerWidth) / (window.innerHeight), 0.1, 1000);
 camera.position.set(2, 0.001, 0.0001);
 
 
 // Создаем рендерер с прозрачным фоном
 let canvas = document.querySelector(".canvas")
+canvas.style.position = "absolute"
 var renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas });
 renderer.setSize((window.innerWidth - 50), (window.innerHeight - 50));
 document.body.appendChild(renderer.domElement);
