@@ -5,6 +5,8 @@ import { RectAreaLightHelper } from 'RectAreaLightHelper'
 import { RectAreaLightUniformsLib } from 'RectAreaLightUniformsLib';
 import { Scene } from 'three';
 
+
+
 // Создаем сцену
 var scene = new THREE.Scene();
 scene.scale.set(8,8,8)
@@ -18,7 +20,7 @@ camera.position.set(2, 0.001, 0.0001);
 let canvas = document.querySelector(".canvas")
 canvas.style.position = "absolute"
 var renderer = new THREE.WebGLRenderer({ alpha: true, canvas: canvas });
-renderer.setSize((window.innerWidth - 50), (window.innerHeight - 50));
+renderer.setSize((window.innerWidth), (window.innerHeight));
 document.body.appendChild(renderer.domElement);
 
 // Создаем свет
@@ -59,14 +61,17 @@ loader.load(
 var controls = new OrbitControls(camera, renderer.domElement);
 controls.enableRotate = false;
 controls.enableZoom = false;
+controls.enablePan = false; // Отключаем панорамирование
+
 
 
 // Функция анимации
 function animate() {
     requestAnimationFrame(animate);
+    TWEEN.update(); // обновляем tweens при каждом кадре
     controls.update(); // обновляем контроллеры при каждом кадре
     renderer.render(scene, camera);
-}
+    }
 
 // Создаем вектор для хранения позиции касания
 var touch = new THREE.Vector2();
@@ -94,17 +99,21 @@ function onTouchStart(event) {
         // Определяем направление вращения на основе позиции касания
         var directionX = (touch.x > 0) ? 1 : -1;
         var directionY = (touch.y > 0) ? -1 : 1;
-
-        // Вращаем модель
-        intersects[0].object.rotation.y -= directionX * 0.02; // Замените 0.1 на любое значение, чтобы изменить скорость вращения
-        intersects[0].object.rotation.x -= directionY * 0.02;
-
+    
+        // Создаем новый tween для вращения модели
+        new TWEEN.Tween(intersects[0].object.rotation)
+            .to({
+                y: intersects[0].object.rotation.y - directionX * 0.5,
+                x: intersects[0].object.rotation.x - directionY * 0.5
+            }, 1000) // 2000 мс = 2 секунды
+            .easing(TWEEN.Easing.Quadratic.Out) // функция плавности
+            .start(); // начинаем анимацию
+    
         // Сохраняем текущее положение модели
         var currentRotationY = intersects[0].object.rotation.y;
         var currentRotationX = intersects[0].object.rotation.x;
-
-
     }
+    
 }
 
 // Добавляем слушатель событий для касания
@@ -118,3 +127,8 @@ document.addEventListener('touchstart', onTouchStart, false);
 
 animate();
 
+
+
+// Функция анимации
+
+    
