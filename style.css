@@ -6,11 +6,10 @@
 body {
     position: relative;
     background: black;
-    background-repeat: no-repeat;
-    background-size: cover;
     height: 100vh;
     width: 100vw;
     z-index: 1;
+    color: white;
     
 }
 
@@ -25,13 +24,7 @@ body {
 
 
 
-.point {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 100vh; 
-    color: white;
-} 
+
 
 .Point {
 
@@ -51,6 +44,36 @@ body {
 
 .slesh {
 
+}
+
+.point {
+    display: flex;
+    height: 90vh;
+    padding-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+
+}
+
+.oon {
+    margin: 0 auto;
+}
+
+
+
+.en {
+    text-align: center;
+}
+
+.BLTC {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-image: url("assets/btc.svg");
+    background-repeat: no-repeat;
+    margin-left: 5px;
 }
 
 .canvas {
